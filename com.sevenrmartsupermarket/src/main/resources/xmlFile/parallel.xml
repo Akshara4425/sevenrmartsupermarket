@@ -1,0 +1,22 @@
+<suite name="allmodulerun" thread-count="5" parallel="tests">
+	<test name="login">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest" />
+
+		</classes>
+	</test>
+
+	<test name="homepage">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest" />
+		</classes>
+	</test>
+
+
+	<test name="Adminusers">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.AdminUserTest" />
+		</classes>
+	</test>
+
+</suite>
