@@ -1,4 +1,4 @@
-<suite name="groupexecution" thread.count="5" parallel="tests">
+<suite name="groupexecution" thread.count="5" >
 	<test name="regressionrun">
 		<groups>
 			<run>
@@ -7,7 +7,9 @@
 		</groups>
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
 		<class name="com.sevenrmartsupermarket.tests.AdminUserTest"></class>
+		<class name="com.sevenrmartsupermarket.tests.CategoryTest"></class>
 		</classes>
 	</test>
 

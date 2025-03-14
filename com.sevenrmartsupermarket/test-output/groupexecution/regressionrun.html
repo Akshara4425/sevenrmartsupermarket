@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>regressionrun</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>4/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Mar 11 19:40:17 IST 2025</td>
+<td>Started on:</td><td>Fri Mar 14 10:52:44 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>9 seconds (9130 ms)</td>
+<tr><td>Total time:</td><td>19 seconds (19036 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td>regression </td>
 </tr><tr>
@@ -76,23 +76,56 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.sevenrmartsupermarket.tests.LoginTest.verifyLogin()'><b>verifyLogin</b><br>Test class: com.sevenrmartsupermarket.tests.LoginTest</td>
-<td><div><pre>java.lang.AssertionError: expected [admin] but found [Admin]
-	at com.sevenrmartsupermarket.tests.LoginTest.verifyLogin(LoginTest.java:28)
+<td title='com.sevenrmartsupermarket.tests.HomeTest.verifyMoreInfoLink()'><b>verifyMoreInfoLink</b><br>Test class: com.sevenrmartsupermarket.tests.HomeTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: chrome=134.0.6998.89)
+Build info: version: &apos;4.12.1&apos;, revision: &apos;8e34639b11&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d4d277c3b759719f691f8f7a50e863e3, findElements {using=xpath, value=//a[contains(text(),&apos;More info&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\aksha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49994}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49994/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d4d277c3b759719f691f8f7a50e863e3
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:182)
+	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:103)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:372)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:366)
+	at com.sevenrmartsupermarket.pages.HomePage.getMoreInfoLinks(HomePage.java:49)
+	at com.sevenrmartsupermarket.tests.HomeTest.verifyMoreInfoLink(HomeTest.java:28)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1463756655", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1463756655'><pre>java.lang.AssertionError: expected [admin] but found [Admin]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at com.sevenrmartsupermarket.tests.LoginTest.verifyLogin(LoginTest.java:28)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace92621336", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace92621336'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: chrome=134.0.6998.89)
+Build info: version: &apos;4.12.1&apos;, revision: &apos;8e34639b11&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d4d277c3b759719f691f8f7a50e863e3, findElements {using=xpath, value=//a[contains(text(),&apos;More info&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\aksha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49994}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49994/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d4d277c3b759719f691f8f7a50e863e3
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:182)
+	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:103)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:372)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:366)
+	at com.sevenrmartsupermarket.pages.HomePage.getMoreInfoLinks(HomePage.java:49)
+	at com.sevenrmartsupermarket.tests.HomeTest.verifyMoreInfoLink(HomeTest.java:28)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -107,15 +140,21 @@ function toggleAllBoxes() {
 	at org.testng.TestRunner.privateRun(TestRunner.java:739)
 	at org.testng.TestRunner.run(TestRunner.java:614)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
-	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>1</td>
-<td>com.sevenrmartsupermarket.tests.LoginTest@32910148</td></tr>
+<td>9</td>
+<td>com.sevenrmartsupermarket.tests.HomeTest@366647c2</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -126,10 +165,25 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.sevenrmartsupermarket.tests.HomeTest.verifyPageTitle()'><b>verifyPageTitle</b><br>Test class: com.sevenrmartsupermarket.tests.HomeTest</td>
+<td></td>
+<td>0</td>
+<td>com.sevenrmartsupermarket.tests.HomeTest@366647c2</td></tr>
+<tr>
 <td title='com.sevenrmartsupermarket.tests.AdminUserTest.verifyNavigationToAdminUserPage()'><b>verifyNavigationToAdminUserPage</b><br>Test class: com.sevenrmartsupermarket.tests.AdminUserTest</td>
 <td></td>
-<td>1</td>
-<td>com.sevenrmartsupermarket.tests.AdminUserTest@2892dae4</td></tr>
+<td>0</td>
+<td>com.sevenrmartsupermarket.tests.AdminUserTest@1649b0e6</td></tr>
+<tr>
+<td title='com.sevenrmartsupermarket.tests.LoginTest.verifyLogin()'><b>verifyLogin</b><br>Test class: com.sevenrmartsupermarket.tests.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>com.sevenrmartsupermarket.tests.LoginTest@7748410a</td></tr>
+<tr>
+<td title='com.sevenrmartsupermarket.tests.CategoryTest.verifyNavigationToCategoryPage()'><b>verifyNavigationToCategoryPage</b><br>Test class: com.sevenrmartsupermarket.tests.CategoryTest</td>
+<td></td>
+<td>0</td>
+<td>com.sevenrmartsupermarket.tests.CategoryTest@865dd6</td></tr>
 </table><p>
 </body>
 </html>

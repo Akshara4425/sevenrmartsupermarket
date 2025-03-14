@@ -31,4 +31,7 @@ public class GeneralUtility {
 		Faker faker = new Faker();
 		return faker.name().username();
 	}
+	public String alertMessage(WebElement element) {
+		return element.getText().trim().replaceAll("\\s+", " ");
+	}
 }

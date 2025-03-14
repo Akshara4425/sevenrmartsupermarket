@@ -53,19 +53,19 @@ public class AdminUserTest extends Base{
 		homePage=loginPage.logIn();;
 		adminUserPage=homePage.selectAdminUser();
 		String actualAlert=adminUserPage.duplicateUser("nakesha.little", "Rahul123", "Staff");
-		boolean status=adminUserPage.searchUser("nakesha.little", "Staff");
+		adminUserPage.searchNameinTable("nakesha.little", "Staff");
 		String expectedAlert="× Alert! Username already exists.";
 		Assert.assertEquals(actualAlert, expectedAlert);
 		
 	}
 @Test
-public void validatePasswordDropdownClick() throws InterruptedException
+public void validatePasswordVisibility() throws InterruptedException
 {
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();	
 	boolean actualstatus=adminUserPage.clickPasswordDropdown();
-	Assert.assertEquals(actualstatus, true);
+	Assert.assertTrue(actualstatus);
 	
 }
 @Test
@@ -77,7 +77,6 @@ public void validateUserStatusButtonFunctionality()
 	String actualStatus=adminUserPage.userStatusUpdateButtonClick("orval.harvey","Admin");
 	String expectedStatus="× Alert! User Status Changed Successfully";
 	Assert.assertEquals(actualStatus, expectedStatus);
-	
 }
 @Test
 public void validateUserDetailUpdateButtonFunctionality()
@@ -87,8 +86,7 @@ public void validateUserDetailUpdateButtonFunctionality()
 	adminUserPage=homePage.selectAdminUser();
 	String actualStatus=adminUserPage.userNameUpdateButtonClick("ManuRoshan","donetta.bahringer","Staff");
 	String expectedStatus="× Alert! User Updated Successfully";
-	Assert.assertEquals(actualStatus, expectedStatus);
-	
+	Assert.assertEquals(actualStatus, expectedStatus);	
 }	
 @Test
 public void validateAdminUserDeleteButtonFunctionality()
@@ -98,7 +96,6 @@ public void validateAdminUserDeleteButtonFunctionality()
 	adminUserPage=homePage.selectAdminUser();
 	String actualStatus=adminUserPage.userDeleteButtonClick("nakesha.little","Staff");
 	String expectedStatus="× Alert! User Deleted Successfully";
-	Assert.assertEquals(actualStatus, expectedStatus);
-	
+	Assert.assertEquals(actualStatus, expectedStatus);	
 }	
 }

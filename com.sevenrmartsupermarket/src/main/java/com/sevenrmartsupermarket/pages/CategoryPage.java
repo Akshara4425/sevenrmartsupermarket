@@ -7,81 +7,68 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.sevenrmartsupermarket.constants.Constants;
+import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class CategoryPage {
 	WebDriver driver;
 	@FindBy(xpath = "//a[text()=' New']")
-	WebElement newCategory_Element ;
-@FindBy(xpath = "//a[text()=' Search']")
-	WebElement  searchCategory_Element;
-@FindBy(xpath = "//a[text()='Reset']")
-	WebElement  resetCategory_Element;
-@FindBy(xpath = "//table//tbody//tr//td[3]")
-	WebElement statusLink_Element ;
-@FindBy(xpath = "//table//tbody//tr//td[4]//a[1]")
-	WebElement updateButton_Element ;
-@FindBy(xpath = "//table//tbody//tr//td[4]//a[2]")
-	WebElement deleteButton_Element ;
-@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Status Changed Successfully')]")
-	WebElement statusChangedAlert ;
-@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Updated Successfully ')]")
+	WebElement newCategoryButton;
+	@FindBy(xpath = "//a[text()=' Search']")
+	WebElement searchCategoryButton;
+	@FindBy(xpath = "//a[text()='Reset']")
+	WebElement resetCategoryButton;
+	@FindBy(xpath = "//table//tbody//tr//td[3]")
+	WebElement statusLink;
+	@FindBy(xpath = "//table//tbody//tr//td[4]//a[1]")
+	WebElement updateButton;
+	@FindBy(xpath = "//table//tbody//tr//td[4]//a[2]")
+	WebElement deleteButton;
+	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Status Changed Successfully')]")
+	WebElement statusChangedAlert;
+	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Updated Successfully ')]")
 	WebElement updateStatusAlert;
-@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Created Successfully ')]")
-WebElement newCategoryAlert;
-@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Deleted Successfully')]")
-	WebElement deleteStatusAlert ;
-@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category already exists')]")
-WebElement duplicateStatusAlert ;
-@FindBy(xpath = "//input[@id='category']")
-	WebElement  inputCategory;
-@FindBy(xpath = "//input[@name='un']")
-WebElement  searchInputCategory;
-@FindBy(xpath = "//div[@class='ms-selectable']//ul//li")
-	WebElement  selectGroupElement;
-@FindBy(xpath = "//div[@class='ms-selection']//ul//li")
-	WebElement  SelectedGroupElement;
-@FindBy(xpath = "//input[@id='main_img']")
-	WebElement imagePathElement ;
-@FindBy(xpath = "//input[@name='top_menu'][1]")
-	WebElement topMenuYesElement ;
-@FindBy(xpath = "//input[@name='top_menu'][2]")
-	WebElement topMenuNoElement ;
-@FindBy(xpath = "//input[@name='show_home'][1]")
-	WebElement  showHomeYesElement;
-@FindBy(xpath = "//input[@name='show_home' and @value='no']")
-	WebElement showHomeNoElement ;
-@FindBy(xpath = "//button[@name='create']")
-	WebElement submitButtonElement ;
-@FindBy(xpath = "//a[text()='Cancel']")
-	WebElement cancelButtonElement ;
-@FindBy(xpath = "//button[@name='update']")
-	WebElement updateButton ;
-@FindBy(xpath = "//button[@name='Search']")
-WebElement searchButton ;
-@FindBy(xpath = "//table/tbody/tr/td")
-List<WebElement> table_Element ;
-@FindBy(xpath = "//a[@href=\"https://groceryapp.uniqassosiates.com/admin/Category/delete_image?id=1366&page_ad=1\"]")
-WebElement imageDeleteButton;
-
-WaitUtility waitUtility;
-PageUtility pageUtility;
-
-public String getUpdateSuccessAlert() {
-	return updateStatusAlert.getText().trim().replaceAll("\\s+", " ");
-}
-public String getDeleteSuccessAlert() {
-	return deleteStatusAlert.getText().trim().replaceAll("\\s+", " ");
-}
-public String getSuccessAlert() {
-	return statusChangedAlert.getText().trim().replaceAll("\\s+", " ");
-}
-public String getNewCategorySuccessAlert()
-{
-return newCategoryAlert.getText().trim().replaceAll("\\s+", " ");
-}
+	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Created Successfully ')]")
+	WebElement newCategoryAlert;
+	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Deleted Successfully')]")
+	WebElement deleteStatusAlert;
+	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category already exists')]")
+	WebElement duplicateStatusAlert;
+	@FindBy(xpath = "//input[@id='category']")
+	WebElement categoryInput;
+	@FindBy(xpath = "//input[@name='un']")
+	WebElement searchCategoryInput;
+	@FindBy(xpath = "//div[@class='ms-selectable']//ul//li")
+	WebElement selectGroupElement;
+	@FindBy(xpath = "//div[@class='ms-selection']//ul//li")
+	WebElement selectedGroupElement;
+	@FindBy(xpath = "//input[@id='main_img']")
+	WebElement imagePathInput;
+	@FindBy(xpath = "//input[@name='top_menu'][1]")
+	WebElement topMenuYesOption;
+	@FindBy(xpath = "//input[@name='top_menu'][2]")
+	WebElement topMenuNoOption;
+	@FindBy(xpath = "//input[@name='show_home'][1]")
+	WebElement showHomeYesOption;
+	@FindBy(xpath = "//input[@name='show_home' and @value='no']")
+	WebElement showHomeNoOption;
+	@FindBy(xpath = "//button[@name='create']")
+	WebElement createButton;
+	@FindBy(xpath = "//a[text()='Cancel']")
+	WebElement cancelButton;
+	@FindBy(xpath = "//button[@name='update']")
+	WebElement updateButtonElement;
+	@FindBy(xpath = "//button[@name='Search']")
+	WebElement searchButton;
+	@FindBy(xpath = "//table/tbody/tr/td")
+	List<WebElement> tableElements;
+	@FindBy(xpath = "//a//span[@class=\"fas fa-trash-alt\"]")
+	WebElement imageDeleteButton;
+	String xpath = "//a//span[@class=\"fas fa-trash-alt\"]";
+	WaitUtility waitUtility;
+	PageUtility pageUtility;
+	GeneralUtility generalUtility;
 
 	public CategoryPage(WebDriver driver) {
 		this.driver = driver;
@@ -92,64 +79,90 @@ return newCategoryAlert.getText().trim().replaceAll("\\s+", " ");
 		return driver.getCurrentUrl();
 	}
 
-	public String addCategory(String category,String image) {
-		String Url="https://groceryapp.uniqassosiates.com/admin/list-category";
-		waitUtility = new WaitUtility(driver);
-		pageUtility=new PageUtility(driver);
-		//pageUtility.mouseClick(resetCategory_Element);
-		newCategory_Element.click();
-		inputCategory.sendKeys(category);
-		pageUtility.mouseClick(selectGroupElement);
-		pageUtility.uploadImage(imagePathElement,image);
-	//	 pageutility.uploadImage(choose_ImageFile, "BeautyProducts"); 
-		pageUtility.mouseClick(topMenuYesElement);
-		pageUtility.mouseClick(showHomeNoElement);
-		pageUtility.mouseClick(submitButtonElement);
-		if(newCategoryAlert.isDisplayed())
-		{	
-		return getNewCategorySuccessAlert();
-		}
+	public boolean IsButtonInthePageAreVisible() {
+		if ((newCategoryButton.isEnabled()) && (searchButton.isEnabled()) && (resetCategoryButton.isEnabled())
+				&& (updateButton.isEnabled()) && (deleteButton.isEnabled()))
+			return true;
 		else
-		{	
-			return "fail";
-		}
+			return false;
 	}
+public boolean IsCategoriesAreDisplaiedInTable()
+{
+	boolean status = true;
+	for (WebElement element : tableElements)
+		if (element.getText().equals(".........RESULT NOT FOUND.......")) {
+			status = false;
+			break;
+		}
+	return status;
+	
+}
+	public String checkAlertMessage(WebElement element) {
+		generalUtility = new GeneralUtility();
+		if (element.isDisplayed())
+			return generalUtility.alertMessage(element);
+		else
+			return "fail";
+	}
+
+	public void insertNewCategory(String category, String image) {
+		categoryInput.sendKeys(category);
+		pageUtility.mouseClick(selectGroupElement);
+		pageUtility.uploadImage(imagePathInput, image);
+		pageUtility.mouseClick(topMenuYesOption);
+		pageUtility.mouseClick(showHomeNoOption);
+	}
+
+	public String addCategory(String category, String image) {
+		waitUtility = new WaitUtility(driver);
+		pageUtility = new PageUtility(driver);
+		newCategoryButton.click();
+		insertNewCategory(category, image);
+		pageUtility.mouseClick(createButton);
+		return checkAlertMessage(newCategoryAlert);
+	}
+
+	public String addDuplicateCategory(String category, String image) {
+		insertNewCategory(category, image);
+		pageUtility.mouseClick(createButton);
+		return checkAlertMessage(duplicateStatusAlert);
+	}
+
 	public boolean searchCategory(String category) {
-		pageUtility=new PageUtility(driver);
-		searchCategory_Element.click();
-		 searchInputCategory.sendKeys(category);
-		searchButton.click();
+		performSearch(category);
 		boolean status = true;
-		for (WebElement element : table_Element)
-			if (element.getText().equals(".........RESULT NOT FOUND......."))
+		for (WebElement element : tableElements)
+			if (element.getText().equals(".........RESULT NOT FOUND.......")) {
 				status = false;
+				break;
+			}
 		return status;
 	}
 
-	public void searchUpdateandDelete(String category) {
-		pageUtility=new PageUtility(driver);
-		searchCategory_Element.click();
-		 searchInputCategory.sendKeys(category);
+	public void performSearch(String category) {
+		pageUtility = new PageUtility(driver);
+		searchCategoryButton.click();
+		searchCategoryInput.sendKeys(category);
 		searchButton.click();
-		
 	}
 
+	public String updateCategory(String category, String updateCategory, String image) {
+		pageUtility = new PageUtility(driver);
+		performSearch(category);
+		pageUtility.mouseClick(updateButton);
+		categoryInput.clear();
+		pageUtility.switchToAlert(driver, imageDeleteButton);
+		categoryInput.sendKeys(updateCategory);
+		pageUtility.uploadImage(imagePathInput, image);
+		pageUtility.uploadImage(imagePathInput, image);
+		pageUtility.mouseClick(updateButtonElement);
+		return checkAlertMessage(updateStatusAlert);
+	}
 
-public String UpdateCategory(String category,String image) {
-	pageUtility=new PageUtility(driver);
-	searchUpdateandDelete( category) ;
-	pageUtility.mouseClick(updateButton_Element);
-	inputCategory.clear();
-	inputCategory.sendKeys(category);
-	pageUtility.switchToAlert(driver,imageDeleteButton);
-	pageUtility.uploadImage(imagePathElement,image); 
-	pageUtility.mouseClick(topMenuYesElement);
-	pageUtility.mouseClick(showHomeNoElement);
-	pageUtility.mouseClick(updateButton);
-	if(updateStatusAlert.isDisplayed())	
-	return getUpdateSuccessAlert();
-	else	
-		return "fail";
-	
-}
+	public String deleteCategory(String category) {
+		pageUtility = new PageUtility(driver);
+		performSearch(category);
+		pageUtility.switchToAlert(driver, deleteButton);
+		return checkAlertMessage(deleteStatusAlert);
+	}
 }

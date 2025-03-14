@@ -58,7 +58,6 @@ WebDriver driver;
 		 pageutility=new PageUtility(driver);
 		pageutility.mouseClick(profile_Element); 
 		pageutility.mouseClick(logOut_Element);
-		//pageutility.scrollAndClick(profile_Element);
 		if(getCurrentURL().equals("https://groceryapp.uniqassosiates.com/admin/login"))
 		return true;
 		else

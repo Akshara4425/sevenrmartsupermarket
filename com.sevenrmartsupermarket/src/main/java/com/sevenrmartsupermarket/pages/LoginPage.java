@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.sevenrmartsupermarket.constants.Constants;
+import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class LoginPage {
 	WebDriver driver;
@@ -25,7 +26,7 @@ public class LoginPage {
 	private WebElement signIn_Button;
 	@FindBy(xpath = "//div[contains(@class, 'alert-danger') and contains(., 'Invalid Username')]")
 	private WebElement invalidAlert_Message;
-	
+	GeneralUtility generalUtility;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -36,26 +37,16 @@ public class LoginPage {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
-	
 
-	public void enterUserName(String userName) {
+	}
+
+	public void LoginData(String userName, String password) {
 		userName_Field.sendKeys(userName);
-	}
-
-	public void enterPassword(String password) {
 		password_Field.sendKeys(password);
-	}
-
-	public void clickOnSignInButton() {
 		signIn_Button.click();
 	}
 
 	public HomePage logIn(String userName, String password) {
-		enterUserName(userName);
-		enterPassword(password);
-		clickOnSignInButton();
 		return new HomePage(driver);
 	}
 
@@ -67,12 +58,9 @@ public class LoginPage {
 	}
 
 	public String logInInvalidalert(String userName, String password) {
-		enterUserName(userName);
-		enterPassword(password);
-		clickOnSignInButton();
-		return  invalidAlert_Message.getText();
-
-		
+		generalUtility = new GeneralUtility();
+		LoginData(userName, password);
+		return generalUtility.alertMessage(invalidAlert_Message);
 	}
 
 }

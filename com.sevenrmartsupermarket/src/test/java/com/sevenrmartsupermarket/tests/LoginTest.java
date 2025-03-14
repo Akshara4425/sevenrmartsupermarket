@@ -23,16 +23,25 @@ public class LoginTest extends Base {
 
 	}
 
-	@Test
+	@Test(groups = "regression")
 	public void verifyInvalidLogin() {
+		loginpage = new LoginPage(driver);
 		excelreader.setExcelFile("LoginData", "logInInvalidCredentials");
 		String userName = excelreader.getCellData(2, 0);
 		String password = excelreader.getCellData(2, 1);
-		System.out.println(userName + password);
-		loginpage = new LoginPage(driver);
 		String expectedAlert = "× Alert! Invalid Username/Password";
-		String actualAlert = loginpage.logInInvalidalert(userName, password).trim().replaceAll("\\s+", " ");
+		String actualAlert = loginpage.logInInvalidalert(userName, password);
 		Assert.assertEquals(actualAlert, expectedAlert);
+	}
+	@Test
+	public void verifyAfterLoginNavigation()
+	{
+		loginpage = new LoginPage(driver);
+		homepage = loginpage.logIn();
+		String actualValue=homepage.getCurrentURL();
+		String  expectedValue="https://groceryapp.uniqassosiates.com/admin";
+		Assert.assertEquals(actualValue, expectedValue);
+		
 	}
 
 }

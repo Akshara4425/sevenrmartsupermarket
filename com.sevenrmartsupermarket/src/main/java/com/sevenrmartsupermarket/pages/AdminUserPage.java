@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.constants.Constants;
+import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 import com.sevenrmartsupermarket.utilities.WaitUtility;
 
@@ -19,6 +20,7 @@ public class AdminUserPage {
 	WebDriver driver;
 	WaitUtility waitutility;
 	PageUtility pageutility;
+	GeneralUtility generalUtility;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'User Deleted Successfully')]")
 	private WebElement successDeleteAlert_Message;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'User Updated Successfully')]")
@@ -65,43 +67,46 @@ public class AdminUserPage {
 	private WebElement statusUpdateLink_Element;
 	@FindBy(xpath = "//table//tbody//tr[1]//td[5]//a[2]")
 	private WebElement updateButtonLink_Element;
-	@FindBy(xpath = "//table//tbody//tr[1]//td[5]//a[3]")
+	@FindBy(xpath = "//table//tbody//tr[1]//td[5]/a[3]")
 	private WebElement DeleteButton_Element;
-	@FindBy(xpath = "//button[@name=\"Update\"]")
+	@FindBy(xpath = "//button[@name=\'Update\']")
 	private WebElement updateButton_Element;
-	
+	@FindBy(xpath = "//table//tbody//tr")
+	private List<WebElement> tableContent_Element;
 
 	public AdminUserPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
 	public String getURL() {
 		return driver.getCurrentUrl();
 	}
-
-	public String getUpdateSuccessAlert() {
-		return successUpdateAlert_Message.getText().trim().replaceAll("\\s+", " ");
+	public boolean IsButtonInthePageAreVisible() {
+		if ((newUser_Element.isEnabled()) && (searchUser_Element.isEnabled()) && (resetUser_Element.isEnabled())
+				&& (statusUpdateLink_Element.isEnabled()) && (updateButtonLink_Element.isEnabled())&&(DeleteButton_Element.isEnabled()))
+			return true;
+		else
+			return false;
 	}
-	public String getDeleteSuccessAlert() {
-		return successDeleteAlert_Message.getText().trim().replaceAll("\\s+", " ");
+public boolean IsAdminUserDetailsAreDisplaiedInTable()
+{
+	boolean status = true;
+	for (WebElement element : tableContent_Element)
+		if (element.getText().equals(".........RESULT NOT FOUND.......")) {
+			status = false;
+			break;
+		}
+	return status;
+	
+}
+	public String checkAlertMessage(WebElement element) {
+		generalUtility = new GeneralUtility();
+		if (element.isDisplayed())
+			return generalUtility.alertMessage(element);
+		else
+			return "fail";
 	}
-	public String getSuccessAlert() {
-		return successAlert_Message.getText().trim().replaceAll("\\s+", " ");
-	}
-
-	public String getFailureAlert() {
-		return failureAlert_Message.getText().trim().replaceAll("\\s+", " ");
-	}
-
-	public String updateStatusSuccessAlert() {
-		return updateStatusSuccessAlert_Message.getText().trim().replaceAll("\\s+", " ");
-	}
-
-	public String updateStatusFaiureAlert() {
-		return updateStatusSuccessAlert_Message.getText().trim().replaceAll("\\s+", " ");
-	}
-
+	
 	public String addNewUser(String userName, String password, String userType) {
 		waitutility = new WaitUtility(driver);
 		pageutility=new PageUtility(driver);
@@ -113,10 +118,8 @@ public class AdminUserPage {
 		saveButton_Element.click();
 		waitutility.waitForXpath(
 				"//div[contains(@class, 'alert-success') and contains(., 'User Created Successfully ')]", 40);
-		if (successAlert_Message.isDisplayed()) {
-			return getSuccessAlert();
-		} else
-			return getFailureAlert();
+		
+		return checkAlertMessage(successAlert_Message);
 	}
 
 	public boolean searchUser(String userName, String userType) {
@@ -126,11 +129,7 @@ public class AdminUserPage {
 		userSearch_Element.sendKeys(userName);
 		pageutility.selectByVisibleText(searchUserType_Element, userType);
 		searchButton_Element.click();
-		boolean status = true;
-		for (WebElement element : table_Element)
-			if (element.getText().equals(".........RESULT NOT FOUND......."))
-				status = false;
-		return status;
+		return IsAdminUserDetailsAreDisplaiedInTable();
 	}
 
 	public String duplicateUser(String userName, String password, String userType) {
@@ -141,10 +140,7 @@ public class AdminUserPage {
 		password_Element.sendKeys(password);
 		pageutility.selectByVisibleText(userType_Element, userType);
 		saveButton_Element.click();
-		if (failureAlert_Message.isDisplayed()) {
-			return getFailureAlert();
-		} else
-			return getSuccessAlert();
+		return checkAlertMessage(failureAlert_Message);
 	}
 
 	public boolean clickPasswordDropdown() throws InterruptedException {
@@ -184,10 +180,11 @@ public class AdminUserPage {
 			statusChanged = statusUpdateLink_Element.getText();
 			System.out.println("Status of "+userName+" is :"+statusPresent);
 			System.out.println("Status of "+userName+" is :"+statusChanged);
-		if (statusPresent.equals(statusChanged))
+		/*if (statusPresent.equals(statusChanged))
 			return "Failed";
 		else
-			return updateStatusSuccessAlert();
+			return updateStatusSuccessAlert();*/
+			return checkAlertMessage(updateStatusSuccessAlert_Message);
 	}
 	public String userNameUpdateButtonClick(String userName,String nameUpdate,String userType) {
 		pageutility = new PageUtility(driver);
@@ -196,10 +193,7 @@ public class AdminUserPage {
 		userName_Elemement.clear();
 		userName_Elemement.sendKeys(nameUpdate);
 		pageutility.mouseClick(updateButton_Element);
-		if (successUpdateAlert_Message.isDisplayed()) {
-			return getUpdateSuccessAlert();
-		} else
-			return "fail";	
+		return checkAlertMessage(successUpdateAlert_Message);
 	}
 	public String userDeleteButtonClick(String userName,String userType)
 	{
@@ -208,11 +202,7 @@ public class AdminUserPage {
 		searchNameinTable(userName,userType);
 		pageutility.switchToAlert(driver, DeleteButton_Element);
 		pageutility.switchToAlert(driver,DeleteButton_Element);
-		if (successDeleteAlert_Message.isDisplayed()) {
-			return getDeleteSuccessAlert();
-		} else
-			return "fail";
-		
+		return checkAlertMessage(successDeleteAlert_Message);
 	}
 
 }

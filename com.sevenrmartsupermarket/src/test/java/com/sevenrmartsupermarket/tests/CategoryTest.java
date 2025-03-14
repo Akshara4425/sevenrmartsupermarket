@@ -16,6 +16,24 @@ public class CategoryTest extends Base{
 		LoginPage loginPage;
 		CategoryPage categoryPage;
 		@Test(groups={"regression"})
+		public void VerifyWetherButtonsOfThePageAreActive()
+		{
+			loginPage=new LoginPage(driver);
+			homePage=loginPage.logIn();;
+			categoryPage=homePage.selectCategoryPage();
+			boolean actualStatus=categoryPage.IsButtonInthePageAreVisible();
+			Assert.assertTrue(actualStatus);
+		}
+		@Test(groups={"regression"})
+		public void VerifyWetherCategoriesAreDisplaied()
+		{
+			loginPage=new LoginPage(driver);
+			homePage=loginPage.logIn();;
+			categoryPage=homePage.selectCategoryPage();
+			boolean actualStatus=categoryPage.IsCategoriesAreDisplaiedInTable();
+			Assert.assertTrue(actualStatus);
+		}
+		@Test(groups={"regression"},priority = 1)
 		public void verifyNavigationToCategoryPage()
 		{
 			loginPage=new LoginPage(driver);
@@ -25,38 +43,44 @@ public class CategoryTest extends Base{
 			String expectedURL="https://groceryapp.uniqassosiates.com/admin/list-category";
 			Assert.assertEquals(currentURL, expectedURL);
 		}
-		@Test 
+		@Test (groups={"regression"},priority = 2)
 		public void validateCategoryNewButtonFunctionality()
 		{
-			String Url="https://groceryapp.uniqassosiates.com/admin/list-category";
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
 			String actualAlert=categoryPage.addCategory("OfficeBags","OfficeBags");
 			String expectedAlert="� Alert! Category Created Successfully";
-			driver.get(Url);
+			driver.navigate().back();
 			Assert.assertEquals(actualAlert, expectedAlert);
 		}
-		@Test 
+		@Test (groups={"regression"},priority = 3)
 		public void validateCategorySearchButtonFunctionality()
 		{
-		String Url="https://groceryapp.uniqassosiates.com/admin/list-category";
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();
 		categoryPage=homePage.selectCategoryPage();
 		boolean actualAlert=categoryPage.searchCategory("OfficeBags");
-		Assert.assertEquals(actualAlert, true);
+		Assert.assertTrue(actualAlert);
 		}
-		@Test 
+		@Test (groups={"regression"},priority = 4)
 		public void validateCategoryUpdateButtonFunctionality()
-		{
-			String Url="https://groceryapp.uniqassosiates.com/admin/list-category";
+		{                                                    
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			String actualAlert=categoryPage.UpdateCategory("HandBags","greenbag");
+			String actualAlert=categoryPage.updateCategory("laptop","DellLaptop","dell");
 			String expectedAlert="× Alert! Category Updated Successfully";
-			driver.get(Url);
+			Assert.assertEquals(actualAlert, expectedAlert);
+		}
+		@Test (groups={"regression"},priority = 4)
+		public void validateDeleteCategoryButton()
+		{
+			loginPage=new LoginPage(driver);
+			homePage=loginPage.logIn();
+			categoryPage=homePage.selectCategoryPage();
+			String actualAlert=categoryPage.deleteCategory("laptopDelllaptop");
+			String expectedAlert="× Alert! Category Deleted Successfully";
 			Assert.assertEquals(actualAlert, expectedAlert);
 		}
 }
