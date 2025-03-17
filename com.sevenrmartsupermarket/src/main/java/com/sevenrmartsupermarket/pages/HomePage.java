@@ -11,9 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class HomePage {
-WebDriver driver;
-	PageUtility pageutility=new PageUtility(driver);
-	@FindBy(xpath = "//li[@class=\"nav-item dropdown show\"]//img")
+	WebDriver driver;
+	PageUtility pageutility = new PageUtility(driver);
+	@FindBy(xpath = "//li[@class=\"nav-item dropdown\"]//a[@data-toggle=\"dropdown\"]")
 	private WebElement profile_Element;
 	@FindBy(xpath = "//div[@class=\"small-box bg-info\"]//p[contains(text(),'Admin Users')][1]/following::a[contains(text(),'More info')][1]")
 	private WebElement adminUser_Element;
@@ -31,50 +31,80 @@ WebDriver driver;
 	private WebElement logOut_Element;
 	@FindBy(xpath = "//a[contains(text(),'Admin')]")
 	private WebElement profileName_Element;
+	@FindBy(xpath = "//a[contains(text(),'More info')]")
+	private List<WebElement> moreInfo;
+
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-}
-	
-	public String getProfileName()
-	{
+	}
+
+	public String getProfileName() {
 		return profileName_Element.getText();
 	}
-	public String getPageTiltle()
-	{
+
+	public String getPageTiltle() {
 		return driver.getTitle();
 	}
-	 public List<WebElement> getMoreInfoLinks()
-	 {
-		 List<WebElement> moreInfo=driver.findElements(By.xpath("//a[contains(text(),'More info')]"));
-	        return moreInfo;
-	    }
-	 public String getCurrentURL()
-	 {
-		 return driver.getCurrentUrl();
-	 }
-	 public boolean logOutFunctionality()
-	 {
-		 pageutility=new PageUtility(driver);
-		pageutility.mouseClick(profile_Element); 
+
+	public List<WebElement> getMoreInfoLinks() {
+		return moreInfo;
+	}
+
+	public String getCurrentURL() {
+		return driver.getCurrentUrl();
+	}
+
+	public void selectDropDown() {
+		pageutility = new PageUtility(driver);
+		pageutility.mouseClick(profile_Element);
+	}
+
+	public void chooseFromDropDown() {
+		pageutility = new PageUtility(driver);
 		pageutility.mouseClick(logOut_Element);
-		if(getCurrentURL().equals("https://groceryapp.uniqassosiates.com/admin/login"))
-		return true;
+	}
+	public boolean morelinkNavigation()
+	{
+		pageutility = new PageUtility(driver);
+	
+		boolean status=true;
+		
+			
+		for (int i = 0; i < moreInfo.size(); i++) {
+			getMoreInfoLinks().get(i).click();
+			String currentURL = getCurrentURL();
+			
+			if((("https://groceryapp.uniqassosiates.com/admin").equals(currentURL))||(("https://groceryapp.uniqassosiates.com/admin/home").equals(currentURL)))
+			{
+				System.out.println("Navigation failed at the index: " + i);
+				status=true;
+			}
+			if(i!=5&&i!=6&&i!=11)
+			driver.navigate().back();
+			
+		}
+		return status;
+	}
+
+	public boolean logOutFunctionality() {
+		selectDropDown();
+		chooseFromDropDown();
+		if (getCurrentURL().equals("https://groceryapp.uniqassosiates.com/admin/login"))
+			return true;
 		else
 			return false;
-		 
-	 }
-	 public AdminUserPage selectAdminUser()
-	 {
-		 adminUser_Element.click(); 
-		 return  new AdminUserPage(driver);
-	 }
-	 public CategoryPage selectCategoryPage()
-	 {
-		 category_Element.click();
-		 return new CategoryPage(driver);
-	 }
-	 						
 
+	}
+
+	public AdminUserPage selectAdminUser() {
+		adminUser_Element.click();
+		return new AdminUserPage(driver);
+	}
+
+	public CategoryPage selectCategoryPage() {
+		category_Element.click();
+		return new CategoryPage(driver);
+	}
 
 }

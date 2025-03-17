@@ -30,24 +30,16 @@ public class HomeTest extends Base {
 	@Test(groups = { "smoke", "regression" })
 	public void verifyMoreInfoLink() {
 		loginpage = new LoginPage(driver);
-		// homePage = new HomePage(driver);
 		homePage = loginpage.logIn();
-		int totalLinks = homePage.getMoreInfoLinks().size();
-		String homePageUrl = "https://groceryapp.uniqassosiates.com/admin";
-		System.out.println("Total 'More Info' links found: " + totalLinks);
-		for (int i = 0; i < totalLinks; i++) {
-			homePage.getMoreInfoLinks().get(i).click();
-			String currentURL = homePage.getCurrentURL();
-			System.out.println("Navigated to: " + currentURL);
-			Assert.assertNotEquals(currentURL, homePageUrl, "Navigation failed for link index: " + i);
-			// driver.navigate().back();
-		}
+		boolean atualstatus=homePage.morelinkNavigation();
+		Assert.assertTrue(atualstatus);
+		
 	}
-	/*
-	 * @Test public void verifyLogOutFunctionality() { loginpage = new
-	 * LoginPage(driver); //homePage = new HomePage(driver);
-	 * homePage=loginpage.logIn(); boolean actualLink =
-	 * homePage.logOutFunctionality(); boolean expectedLink = true;
-	 * Assert.assertEquals(actualLink, expectedLink); }
-	 */
+ @Test (priority =21 )
+	 public void verifyLogOutFunctionality() { 
+	  loginpage = new LoginPage(driver); 
+	  homePage=loginpage.logIn();
+	 boolean actualLink =homePage.logOutFunctionality();
+	  Assert.assertTrue(actualLink); }
+	 
 }

@@ -49,14 +49,16 @@ public class Base {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT));
 	}
+
 	@Parameters("browser")
-	@BeforeMethod(enabled=false,alwaysRun = true)
+	@BeforeMethod(enabled = false, alwaysRun = true)
 	public void launchSession(String browser) {
 		String url = properties.getProperty("url");
 		initialize(browser, url);
 
 	}
-	@BeforeMethod(enabled=true,alwaysRun = true)
+
+	@BeforeMethod(enabled = true, alwaysRun = true)
 	public void launchSession() {
 		String url = properties.getProperty("url");
 		String browser = properties.getProperty("browser");

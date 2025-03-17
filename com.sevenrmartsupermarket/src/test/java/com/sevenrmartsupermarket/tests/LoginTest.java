@@ -13,17 +13,17 @@ public class LoginTest extends Base {
 	HomePage homepage;
 	ExcelReader excelreader = new ExcelReader();
 
-	@Test(groups = "regression")
+	@Test(groups = "regression",description = "Verify login with valid credentials")
 	public void verifyLogin() {
 		loginpage = new LoginPage(driver);
 		homepage = loginpage.logIn();
 		String expectedProfileName = "Admin";
 		String actualProfileName = homepage.getProfileName();
-		Assert.assertEquals(actualProfileName, expectedProfileName);
+		Assert.assertEquals(actualProfileName, expectedProfileName,"Profile name doesn't match.");
 
 	}
 
-	@Test(groups = "regression")
+	@Test(groups = "regression",description = "Verify login with invalid credentials")
 	public void verifyInvalidLogin() {
 		loginpage = new LoginPage(driver);
 		excelreader.setExcelFile("LoginData", "logInInvalidCredentials");
@@ -33,14 +33,14 @@ public class LoginTest extends Base {
 		String actualAlert = loginpage.logInInvalidalert(userName, password);
 		Assert.assertEquals(actualAlert, expectedAlert);
 	}
-	@Test
+	@Test(groups = "regression",description = "Verify whether after login page is redirected to Home ")
 	public void verifyAfterLoginNavigation()
 	{
 		loginpage = new LoginPage(driver);
 		homepage = loginpage.logIn();
-		String actualValue=homepage.getCurrentURL();
+		
 		String  expectedValue="https://groceryapp.uniqassosiates.com/admin";
-		Assert.assertEquals(actualValue, expectedValue);
+		Assert.assertEquals(homepage.getCurrentURL(), expectedValue);
 		
 	}
 

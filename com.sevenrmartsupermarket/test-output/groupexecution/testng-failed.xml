@@ -8,13 +8,16 @@
       </run>
     </groups>
     <classes>
-      <class name="com.sevenrmartsupermarket.tests.HomeTest">
+      <class name="com.sevenrmartsupermarket.tests.CategoryTest">
         <methods>
           <include name="launchSession"/>
           <include name="launchSession"/>
-          <include name="verifyMoreInfoLink"/>
+          <include name="validateDeleteCategoryButton"/>
+          <include name="validateCategorySearchButtonFunctionality"/>
+          <include name="verifyNavigationToCategoryPage"/>
+          <include name="validateCategoryUpdateButtonFunctionality"/>
         </methods>
-      </class> <!-- com.sevenrmartsupermarket.tests.HomeTest -->
+      </class> <!-- com.sevenrmartsupermarket.tests.CategoryTest -->
     </classes>
   </test> <!-- regressionrun(failed) -->
 </suite> <!-- Failed suite [groupexecution] -->

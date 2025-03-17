@@ -16,6 +16,16 @@ public class CategoryTest extends Base{
 		LoginPage loginPage;
 		CategoryPage categoryPage;
 		@Test(groups={"regression"})
+		public void verifyNavigationToCategoryPage()
+		{
+			loginPage=new LoginPage(driver);
+			homePage=loginPage.logIn();;
+			categoryPage=homePage.selectCategoryPage();
+			String currentURL=categoryPage.getURL();
+			String expectedURL="https://groceryapp.uniqassosiates.com/admin/list-category";
+			Assert.assertEquals(currentURL, expectedURL);
+		}
+		@Test(groups={"regression"})
 		public void VerifyWetherButtonsOfThePageAreActive()
 		{
 			loginPage=new LoginPage(driver);
@@ -33,54 +43,56 @@ public class CategoryTest extends Base{
 			boolean actualStatus=categoryPage.IsCategoriesAreDisplaiedInTable();
 			Assert.assertTrue(actualStatus);
 		}
-		@Test(groups={"regression"},priority = 1)
-		public void verifyNavigationToCategoryPage()
-		{
-			loginPage=new LoginPage(driver);
-			homePage=loginPage.logIn();;
-			categoryPage=homePage.selectCategoryPage();
-			String currentURL=categoryPage.getURL();
-			String expectedURL="https://groceryapp.uniqassosiates.com/admin/list-category";
-			Assert.assertEquals(currentURL, expectedURL);
-		}
-		@Test (groups={"regression"},priority = 2)
+		
+		@Test (groups={"regression"})
 		public void validateCategoryNewButtonFunctionality()
 		{
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			String actualAlert=categoryPage.addCategory("OfficeBags","OfficeBags");
-			String expectedAlert="� Alert! Category Created Successfully";
-			driver.navigate().back();
-			Assert.assertEquals(actualAlert, expectedAlert);
+			
+			categoryPage.insertNewCategory("Papper Bag","bag1");
+			categoryPage=homePage.selectCategoryPage();
+			boolean actualAlert=categoryPage.alertnewCategory("Papper Bag");
+			Assert.assertTrue(actualAlert);
+			
 		}
-		@Test (groups={"regression"},priority = 3)
+		@Test (groups={"regression"})
 		public void validateCategorySearchButtonFunctionality()
 		{
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();
 		categoryPage=homePage.selectCategoryPage();
-		boolean actualAlert=categoryPage.searchCategory("OfficeBags");
+		boolean actualAlert=categoryPage.searchCategory("Bag");
 		Assert.assertTrue(actualAlert);
 		}
-		@Test (groups={"regression"},priority = 4)
+		@Test (groups={"regression"},retryAnalyzer = RetryAnalyzer.class )
 		public void validateCategoryUpdateButtonFunctionality()
 		{                                                    
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			String actualAlert=categoryPage.updateCategory("laptop","DellLaptop","dell");
+			categoryPage.updateCategory("Lap Bag","Mini Handbag","bag1");
+			
 			String expectedAlert="× Alert! Category Updated Successfully";
+			String actualAlert=categoryPage.updateAlert();
+			categoryPage.performSearch("Mini Handbag");
+			homePage.logOutFunctionality();
+			homePage=loginPage.logIn();
+			categoryPage=homePage.selectCategoryPage();
 			Assert.assertEquals(actualAlert, expectedAlert);
 		}
-		@Test (groups={"regression"},priority = 4)
+		@Test (groups={"regression"})
 		public void validateDeleteCategoryButton()
 		{
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			String actualAlert=categoryPage.deleteCategory("laptopDelllaptop");
+			String actualAlert=categoryPage.deleteCategory("Beverages");
 			String expectedAlert="× Alert! Category Deleted Successfully";
+			homePage.logOutFunctionality();
+			homePage=loginPage.logIn();
+			categoryPage=homePage.selectCategoryPage();
 			Assert.assertEquals(actualAlert, expectedAlert);
 		}
 }

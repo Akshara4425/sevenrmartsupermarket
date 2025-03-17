@@ -21,7 +21,7 @@ public class CategoryPage {
 	WebElement resetCategoryButton;
 	@FindBy(xpath = "//table//tbody//tr//td[3]")
 	WebElement statusLink;
-	@FindBy(xpath = "//table//tbody//tr//td[4]//a[1]")
+	@FindBy(xpath = "//table//tbody//tr[1]//td[4]//a[1]")
 	WebElement updateButton;
 	@FindBy(xpath = "//table//tbody//tr//td[4]//a[2]")
 	WebElement deleteButton;
@@ -65,10 +65,13 @@ public class CategoryPage {
 	List<WebElement> tableElements;
 	@FindBy(xpath = "//a//span[@class=\"fas fa-trash-alt\"]")
 	WebElement imageDeleteButton;
+	@FindBy(xpath = "//a[text()='Home']")
+	WebElement homebutton;
 	String xpath = "//a//span[@class=\"fas fa-trash-alt\"]";
 	WaitUtility waitUtility;
 	PageUtility pageUtility;
 	GeneralUtility generalUtility;
+	String alert = "";
 
 	public CategoryPage(WebDriver driver) {
 		this.driver = driver;
@@ -86,17 +89,18 @@ public class CategoryPage {
 		else
 			return false;
 	}
-public boolean IsCategoriesAreDisplaiedInTable()
-{
-	boolean status = true;
-	for (WebElement element : tableElements)
-		if (element.getText().equals(".........RESULT NOT FOUND.......")) {
-			status = false;
-			break;
-		}
-	return status;
-	
-}
+
+	public boolean IsCategoriesAreDisplaiedInTable() {
+		boolean status = true;
+		for (WebElement element : tableElements)
+			if (element.getText().equals(".........RESULT NOT FOUND.......")) {
+				status = false;
+				break;
+			}
+		return status;
+
+	}
+
 	public String checkAlertMessage(WebElement element) {
 		generalUtility = new GeneralUtility();
 		if (element.isDisplayed())
@@ -105,60 +109,136 @@ public boolean IsCategoriesAreDisplaiedInTable()
 			return "fail";
 	}
 
-	public void insertNewCategory(String category, String image) {
+	public void enterCategoryName(String category) {
 		categoryInput.sendKeys(category);
+	}
+
+	public void selectGroupElement(WebElement selectGroupElement) {
+		pageUtility = new PageUtility(driver);
 		pageUtility.mouseClick(selectGroupElement);
+	}
+
+	public void uploadImage(WebElement imagePathInput, String image) {
+		pageUtility = new PageUtility(driver);
 		pageUtility.uploadImage(imagePathInput, image);
+
+	}
+
+	public void selectTopMenu(WebElement topMenuYesOption) {
+		pageUtility = new PageUtility(driver);
 		pageUtility.mouseClick(topMenuYesOption);
+	}
+
+	public void selectHomeNoOption(WebElement showHomeNoOption) {
+		pageUtility = new PageUtility(driver);
 		pageUtility.mouseClick(showHomeNoOption);
 	}
 
-	public String addCategory(String category, String image) {
-		waitUtility = new WaitUtility(driver);
-		pageUtility = new PageUtility(driver);
+	public void enterSearchElement(String category) {
+		searchCategoryInput.sendKeys(category);
+	}
+
+	public void newButtonClick() {
 		newCategoryButton.click();
-		insertNewCategory(category, image);
+	}
+
+	public void createButtonClick() {
+		pageUtility = new PageUtility(driver);
 		pageUtility.mouseClick(createButton);
-		return checkAlertMessage(newCategoryAlert);
+	}
+
+	public void homeButtonClick() {
+		pageUtility = new PageUtility(driver);
+		pageUtility.mouseClick(homebutton);
+
+	}
+
+	public void selectSerachButtonClick() {
+		searchCategoryButton.click();
+	}
+
+	public void serachButtonClick() {
+		searchButton.click();
+	}
+
+	public void insertNewCategory(String category, String image) {
+		insertCategory(category, image);
+		alert = checkAlertMessage(newCategoryAlert);
+		homeButtonClick();
+	}
+
+	public void selectUpdateOption() {
+		pageUtility = new PageUtility(driver);
+		pageUtility.mouseClick(updateButton);
+	}
+
+	public void enterUpdateValue(String updateCategory) {
+		categoryInput.clear();
+		categoryInput.sendKeys(updateCategory);
+	}
+
+	public void deleteImage(WebElement imageDeleteButton) {
+		pageUtility = new PageUtility(driver);
+		pageUtility.switchToAlert(driver, imageDeleteButton);
+	}
+
+	public void ButtonClick(WebElement element) {
+		pageUtility = new PageUtility(driver);
+		pageUtility.mouseClick(updateButtonElement);
+	}
+
+	public void insertCategory(String category, String image) {
+		newButtonClick();
+		enterCategoryName(category);
+		selectGroupElement(selectGroupElement);
+		uploadImage(imagePathInput, image);
+		selectTopMenu(topMenuYesOption);
+		selectHomeNoOption(showHomeNoOption);
+		createButtonClick();
+	}
+
+	public boolean alertnewCategory(String category) {
+
+		performSearch(category);
+		return IsCategoriesAreDisplaiedInTable();
+
+	}
+
+	public void performSearch(String category) {
+
+		pageUtility = new PageUtility(driver);
+		selectSerachButtonClick();
+		enterSearchElement(category);
+		searchButton.click();
 	}
 
 	public String addDuplicateCategory(String category, String image) {
-		insertNewCategory(category, image);
-		pageUtility.mouseClick(createButton);
+		insertCategory(category, image);
+
 		return checkAlertMessage(duplicateStatusAlert);
 	}
 
 	public boolean searchCategory(String category) {
 		performSearch(category);
-		boolean status = true;
-		for (WebElement element : tableElements)
-			if (element.getText().equals(".........RESULT NOT FOUND.......")) {
-				status = false;
-				break;
-			}
-		return status;
+		return IsCategoriesAreDisplaiedInTable();
 	}
 
-	public void performSearch(String category) {
-		pageUtility = new PageUtility(driver);
-		searchCategoryButton.click();
-		searchCategoryInput.sendKeys(category);
-		searchButton.click();
-	}
-
-	public String updateCategory(String category, String updateCategory, String image) {
-		pageUtility = new PageUtility(driver);
+	public void updateCategory(String category, String updateCategory, String image) {
 		performSearch(category);
-		pageUtility.mouseClick(updateButton);
-		categoryInput.clear();
-		pageUtility.switchToAlert(driver, imageDeleteButton);
-		categoryInput.sendKeys(updateCategory);
-		pageUtility.uploadImage(imagePathInput, image);
-		pageUtility.uploadImage(imagePathInput, image);
-		pageUtility.mouseClick(updateButtonElement);
-		return checkAlertMessage(updateStatusAlert);
+		if(IsCategoriesAreDisplaiedInTable())
+		{
+		selectUpdateOption();
+		deleteImage(imageDeleteButton);
+		enterUpdateValue(updateCategory);
+		uploadImage(imagePathInput, image);
+		ButtonClick(updateButtonElement);
+		}
+		
 	}
-
+public String updateAlert()
+{
+	return checkAlertMessage(updateStatusAlert);	
+}
 	public String deleteCategory(String category) {
 		pageUtility = new PageUtility(driver);
 		performSearch(category);

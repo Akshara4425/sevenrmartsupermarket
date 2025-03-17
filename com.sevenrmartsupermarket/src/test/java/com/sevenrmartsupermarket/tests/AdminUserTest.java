@@ -9,51 +9,61 @@ import com.sevenrmartsupermarket.listeners.RetryAnalyzer;
 import com.sevenrmartsupermarket.pages.AdminUserPage;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
-import com.sevenrmartsupermarket.utilities.WaitUtility;
+
 
 public class AdminUserTest extends Base{
 	HomePage homePage;
 	LoginPage loginPage;
 	AdminUserPage adminUserPage;
 	DataProviderNewUser dataprovidernewuser=new DataProviderNewUser();
-	
 	@Test(groups={"regression"})
 	public void verifyNavigationToAdminUserPage()
 	{
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();;
 		adminUserPage=homePage.selectAdminUser();
-		String currentURL=adminUserPage.getURL();
+		
 		String expectedURL="https://groceryapp.uniqassosiates.com/admin/list-admin";
-		Assert.assertEquals(currentURL, expectedURL);
+		Assert.assertEquals(adminUserPage.getURL(), expectedURL);
 	}
-	@Test (retryAnalyzer = RetryAnalyzer.class , dataProvider = "newUser",dataProviderClass =DataProviderNewUser.class )
+	//@Test (retryAnalyzer = RetryAnalyzer.class )
+	@Test (groups={"regression"},dataProvider = "newUser",dataProviderClass =DataProviderNewUser.class )
 	public void validateNewUserCreation(String userName,String password,String userType)
 	{
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();;
 		adminUserPage=homePage.selectAdminUser();
+		adminUserPage.addUserDetails(userName, password, userType);
+		
 		String actualAlert=adminUserPage.addNewUser(userName, password, userType);
 		String expectedAlert="× Alert! User Created Successfully";
 		Assert.assertEquals(actualAlert, expectedAlert);
 	}
-	@Test
+	@Test(groups = "regression",description = "Validate the search Button functionality ",retryAnalyzer = RetryAnalyzer.class )
 	public void validateSearchButtonfunctionality()
 	{
 		loginPage=new LoginPage(driver);
-		homePage=loginPage.logIn();;
+		homePage=loginPage.logIn();
 		adminUserPage=homePage.selectAdminUser();
-		boolean actualstatus=adminUserPage.searchUser("sidney.ondricka","Admin");
-		Assert.assertEquals(actualstatus, true);
+		adminUserPage.searchNameinTable("Danial","Admin");
+		boolean actualstatus=adminUserPage.searchUser();
+		homePage.logOutFunctionality();
+		loginPage=new LoginPage(driver);
+		homePage=loginPage.logIn();
+		adminUserPage=homePage.selectAdminUser();
+		Assert.assertTrue(actualstatus,".........RESULT NOT FOUND.......");
 	}
-	@Test
+	@Test(groups = "regression")
 	public void validateDuplicateUserEnterEntry()
 	{
 		loginPage=new LoginPage(driver);
-		homePage=loginPage.logIn();;
+		homePage=loginPage.logIn();
+		
 		adminUserPage=homePage.selectAdminUser();
-		String actualAlert=adminUserPage.duplicateUser("nakesha.little", "Rahul123", "Staff");
-		adminUserPage.searchNameinTable("nakesha.little", "Staff");
+		adminUserPage.addUserDetails("Deni", "Rahul123", "Admin");
+		
+		String actualAlert=adminUserPage.duplicateUser();
+		adminUserPage.searchNameinTable("Deni", "Admin");
 		String expectedAlert="× Alert! Username already exists.";
 		Assert.assertEquals(actualAlert, expectedAlert);
 		
@@ -65,7 +75,7 @@ public void validatePasswordVisibility() throws InterruptedException
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();	
 	boolean actualstatus=adminUserPage.clickPasswordDropdown();
-	Assert.assertTrue(actualstatus);
+	Assert.assertTrue(actualstatus,"Unable list all users password");
 	
 }
 @Test
@@ -74,27 +84,33 @@ public void validateUserStatusButtonFunctionality()
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();
-	String actualStatus=adminUserPage.userStatusUpdateButtonClick("orval.harvey","Admin");
+	adminUserPage.userStatusUpdateButtonClick("Hayes","Admin");
+	String actualStatus=adminUserPage.statusChange();
 	String expectedStatus="× Alert! User Status Changed Successfully";
 	Assert.assertEquals(actualStatus, expectedStatus);
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class )
 public void validateUserDetailUpdateButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
-	homePage=loginPage.logIn();;
+	homePage=loginPage.logIn();
 	adminUserPage=homePage.selectAdminUser();
-	String actualStatus=adminUserPage.userNameUpdateButtonClick("ManuRoshan","donetta.bahringer","Staff");
+	adminUserPage.userNameUpdateButtonClick("Jameson","Niranjan.Little","Admin");
+	String actualStatus=adminUserPage.updteAlert();
 	String expectedStatus="× Alert! User Updated Successfully";
+	homePage.logOutFunctionality();
+	homePage=loginPage.logIn();
+	adminUserPage=homePage.selectAdminUser();
 	Assert.assertEquals(actualStatus, expectedStatus);	
 }	
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class )
 public void validateAdminUserDeleteButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();
-	String actualStatus=adminUserPage.userDeleteButtonClick("nakesha.little","Staff");
+	adminUserPage.userDeleteButtonClick("Jerde","Admin");
+	String actualStatus=adminUserPage.deleteUserStatus();
 	String expectedStatus="× Alert! User Deleted Successfully";
 	Assert.assertEquals(actualStatus, expectedStatus);	
 }	

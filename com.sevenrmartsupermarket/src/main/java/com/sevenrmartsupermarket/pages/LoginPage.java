@@ -39,14 +39,27 @@ public class LoginPage {
 		}
 
 	}
+	public void enterUserName(String userName)
+	{
+		userName_Field.sendKeys(userName);	
+	}
+	public void enterPassword(String password)
+	{
+		password_Field.sendKeys(password);	
+	}
+	public void clickSiginButton()
+	{
+		signIn_Button.click();	
+	}
 
 	public void LoginData(String userName, String password) {
-		userName_Field.sendKeys(userName);
-		password_Field.sendKeys(password);
+		enterUserName( userName);
+		enterPassword(password);
 		signIn_Button.click();
 	}
 
 	public HomePage logIn(String userName, String password) {
+		LoginData(userName,password);
 		return new HomePage(driver);
 	}
 
