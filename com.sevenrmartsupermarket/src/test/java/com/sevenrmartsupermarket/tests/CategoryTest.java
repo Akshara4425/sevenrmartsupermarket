@@ -23,7 +23,7 @@ public class CategoryTest extends Base{
 			String expectedURL="https://groceryapp.uniqassosiates.com/admin/list-category";
 			Assert.assertEquals(currentURL, expectedURL);
 		}
-		@Test(groups={"regression"})
+		@Test
 		public void VerifyWetherButtonsOfThePageAreActive()
 		{
 			loginPage=new LoginPage(driver);
@@ -32,7 +32,7 @@ public class CategoryTest extends Base{
 			boolean actualStatus=categoryPage.IsButtonInthePageAreVisible();
 			Assert.assertTrue(actualStatus);
 		}
-		@Test(groups={"regression"})
+		@Test
 		public void VerifyWetherCategoriesAreDisplaied()
 		{
 			loginPage=new LoginPage(driver);

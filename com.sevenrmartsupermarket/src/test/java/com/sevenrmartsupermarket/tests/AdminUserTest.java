@@ -16,7 +16,7 @@ public class AdminUserTest extends Base{
 	LoginPage loginPage;
 	AdminUserPage adminUserPage;
 	DataProviderNewUser dataprovidernewuser=new DataProviderNewUser();
-	@Test(groups={"regression"})
+	@Test(groups={"smoke"})
 	public void verifyNavigationToAdminUserPage()
 	{
 		loginPage=new LoginPage(driver);
@@ -55,7 +55,7 @@ public class AdminUserTest extends Base{
 		adminUserPage=homePage.selectAdminUser();
 		Assert.assertTrue(actualstatus,".........RESULT NOT FOUND.......");
 	}
-	@Test(groups = "regression")
+	@Test(groups = "smoke")
 	public void validateDuplicateUserEnterEntry()
 	{
 		loginPage=new LoginPage(driver);
@@ -70,7 +70,7 @@ public class AdminUserTest extends Base{
 		Assert.assertEquals(actualAlert, expectedAlert);
 		
 	}
-@Test(groups = "regression")
+@Test
 public void validatePasswordVisibility() throws InterruptedException
 {
 	loginPage=new LoginPage(driver);
@@ -80,7 +80,7 @@ public void validatePasswordVisibility() throws InterruptedException
 	Assert.assertTrue(actualstatus,"Unable list all users password");
 	
 }
-@Test(groups = "regression")
+@Test
 public void validateUserStatusButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
