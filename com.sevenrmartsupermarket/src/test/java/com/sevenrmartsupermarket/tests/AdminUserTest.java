@@ -45,8 +45,10 @@ public class AdminUserTest extends Base{
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();
 		adminUserPage=homePage.selectAdminUser();
+		
 		adminUserPage.searchNameinTable("Danial","Admin");
 		boolean actualstatus=adminUserPage.searchUser();
+		
 		homePage.logOutFunctionality();
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();
@@ -68,7 +70,7 @@ public class AdminUserTest extends Base{
 		Assert.assertEquals(actualAlert, expectedAlert);
 		
 	}
-@Test
+@Test(groups = "regression")
 public void validatePasswordVisibility() throws InterruptedException
 {
 	loginPage=new LoginPage(driver);
@@ -78,38 +80,41 @@ public void validatePasswordVisibility() throws InterruptedException
 	Assert.assertTrue(actualstatus,"Unable list all users password");
 	
 }
-@Test
+@Test(groups = "regression")
 public void validateUserStatusButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();
-	adminUserPage.userStatusUpdateButtonClick("Hayes","Admin");
+	adminUserPage.userStatusUpdateButtonClick("Danial","Admin");
 	String actualStatus=adminUserPage.statusChange();
 	String expectedStatus="× Alert! User Status Changed Successfully";
 	Assert.assertEquals(actualStatus, expectedStatus);
 }
-@Test(retryAnalyzer = RetryAnalyzer.class )
+@Test(retryAnalyzer = RetryAnalyzer.class ,groups = "regression")
 public void validateUserDetailUpdateButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();
 	adminUserPage=homePage.selectAdminUser();
-	adminUserPage.userNameUpdateButtonClick("Jameson","Niranjan.Little","Admin");
+	
+	adminUserPage.userNameUpdateButtonClick("Danial.Little	","Danial","Admin");
 	String actualStatus=adminUserPage.updteAlert();
 	String expectedStatus="× Alert! User Updated Successfully";
+	
 	homePage.logOutFunctionality();
 	homePage=loginPage.logIn();
 	adminUserPage=homePage.selectAdminUser();
+	
 	Assert.assertEquals(actualStatus, expectedStatus);	
 }	
-@Test(retryAnalyzer = RetryAnalyzer.class )
+@Test(retryAnalyzer = RetryAnalyzer.class ,groups={"regression"})
 public void validateAdminUserDeleteButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();
-	adminUserPage.userDeleteButtonClick("Jerde","Admin");
+	adminUserPage.userDeleteButtonClick("PriyaPrakash","Staff");
 	String actualStatus=adminUserPage.deleteUserStatus();
 	String expectedStatus="× Alert! User Deleted Successfully";
 	Assert.assertEquals(actualStatus, expectedStatus);	

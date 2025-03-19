@@ -1,4 +1,7 @@
 <suite name="groupexecution" thread.count="5" >
+<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
 	<test name="regressionrun">
 		<groups>
 			<run>
@@ -8,8 +11,7 @@
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
 			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
-		<class name="com.sevenrmartsupermarket.tests.AdminUserTest"></class>
-		<class name="com.sevenrmartsupermarket.tests.CategoryTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.AdminUserTest.java"></class>
 		</classes>
 	</test>
 

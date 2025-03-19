@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
-import com.sevenrmartsupermarket.dataprovider.DataProviderNewUser;
 import com.sevenrmartsupermarket.listeners.RetryAnalyzer;
-import com.sevenrmartsupermarket.pages.AdminUserPage;
 import com.sevenrmartsupermarket.pages.CategoryPage;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
@@ -51,9 +49,9 @@ public class CategoryTest extends Base{
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
 			
-			categoryPage.insertNewCategory("Papper Bag","bag1");
+			categoryPage.insertNewCategory("dell","dell");
 			categoryPage=homePage.selectCategoryPage();
-			boolean actualAlert=categoryPage.alertnewCategory("Papper Bag");
+			boolean actualAlert=categoryPage.alertnewCategory("dell");
 			Assert.assertTrue(actualAlert);
 			
 		}
@@ -63,7 +61,7 @@ public class CategoryTest extends Base{
 		loginPage=new LoginPage(driver);
 		homePage=loginPage.logIn();
 		categoryPage=homePage.selectCategoryPage();
-		boolean actualAlert=categoryPage.searchCategory("Bag");
+		boolean actualAlert=categoryPage.searchCategory("laptop");
 		Assert.assertTrue(actualAlert);
 		}
 		@Test (groups={"regression"},retryAnalyzer = RetryAnalyzer.class )
@@ -72,11 +70,11 @@ public class CategoryTest extends Base{
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			categoryPage.updateCategory("Lap Bag","Mini Handbag","bag1");
+			categoryPage.updateCategory("lenavo laptop","dell laptop","dell");
 			
 			String expectedAlert="× Alert! Category Updated Successfully";
 			String actualAlert=categoryPage.updateAlert();
-			categoryPage.performSearch("Mini Handbag");
+			categoryPage.performSearch("dell laptop");
 			homePage.logOutFunctionality();
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
@@ -88,7 +86,7 @@ public class CategoryTest extends Base{
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			String actualAlert=categoryPage.deleteCategory("Beverages");
+			String actualAlert=categoryPage.deleteCategory("flower");
 			String expectedAlert="× Alert! Category Deleted Successfully";
 			homePage.logOutFunctionality();
 			homePage=loginPage.logIn();

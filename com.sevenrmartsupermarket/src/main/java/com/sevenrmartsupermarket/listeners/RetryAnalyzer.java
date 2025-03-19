@@ -1,7 +1,6 @@
 package com.sevenrmartsupermarket.listeners;
 
 import org.testng.IRetryAnalyzer;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class RetryAnalyzer implements IRetryAnalyzer {
