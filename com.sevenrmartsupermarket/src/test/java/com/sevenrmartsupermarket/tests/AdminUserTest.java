@@ -98,7 +98,7 @@ public void validateUserDetailUpdateButtonFunctionality()
 	homePage=loginPage.logIn();
 	adminUserPage=homePage.selectAdminUser();
 	
-	adminUserPage.userNameUpdateButtonClick("SreeLal","Sree.Hary","Admin");
+	adminUserPage.userNameUpdateButtonClick("Sree.Hary","SreeLal","Admin");
 	String actualStatus=adminUserPage.updteAlert();
 	String expectedStatus="× Alert! User Updated Successfully";
 	
@@ -114,7 +114,7 @@ public void validateAdminUserDeleteButtonFunctionality()
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();
-	adminUserPage.userDeleteButtonClick("Munnu.Vinu	","Staff");
+	adminUserPage.userDeleteButtonClick("Soniya	","Staff");
 	
 	String actualStatus=adminUserPage.deleteUserStatus();
 	String expectedStatus="× Alert! User Deleted Successfully";
