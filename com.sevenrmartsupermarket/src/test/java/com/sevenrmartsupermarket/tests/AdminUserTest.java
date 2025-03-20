@@ -80,7 +80,7 @@ public void validatePasswordVisibility() throws InterruptedException
 	Assert.assertTrue(actualstatus,"Unable list all users password");
 	
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void validateUserStatusButtonFunctionality()
 {
 	loginPage=new LoginPage(driver);
@@ -98,7 +98,7 @@ public void validateUserDetailUpdateButtonFunctionality()
 	homePage=loginPage.logIn();
 	adminUserPage=homePage.selectAdminUser();
 	
-	adminUserPage.userNameUpdateButtonClick("Danial.Little	","Danial","Admin");
+	adminUserPage.userNameUpdateButtonClick("SreeLal","Sree.Hary","Admin");
 	String actualStatus=adminUserPage.updteAlert();
 	String expectedStatus="× Alert! User Updated Successfully";
 	
@@ -114,7 +114,8 @@ public void validateAdminUserDeleteButtonFunctionality()
 	loginPage=new LoginPage(driver);
 	homePage=loginPage.logIn();;
 	adminUserPage=homePage.selectAdminUser();
-	adminUserPage.userDeleteButtonClick("PriyaPrakash","Staff");
+	adminUserPage.userDeleteButtonClick("Munnu.Vinu	","Staff");
+	
 	String actualStatus=adminUserPage.deleteUserStatus();
 	String expectedStatus="× Alert! User Deleted Successfully";
 	Assert.assertEquals(actualStatus, expectedStatus);	

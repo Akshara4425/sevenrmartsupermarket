@@ -14,61 +14,59 @@ import com.sevenrmartsupermarket.utilities.WaitUtility;
 public class CategoryPage {
 	WebDriver driver;
 	@FindBy(xpath = "//a[text()=' New']")
-	WebElement newCategoryButton;
+	private WebElement newCategoryButton;
 	@FindBy(xpath = "//a[text()=' Search']")
-	WebElement searchCategoryButton;
+	private WebElement searchCategoryButton;
 	@FindBy(xpath = "//a[text()='Reset']")
-	WebElement resetCategoryButton;
+	private WebElement resetCategoryButton;
 	@FindBy(xpath = "//table//tbody//tr//td[3]")
-	WebElement statusLink;
+	private WebElement statusLink;
 	@FindBy(xpath = "//table//tbody//tr[1]//td[4]//a[1]")
-	WebElement updateButton;
+	private WebElement updateButton;
 	@FindBy(xpath = "//table//tbody//tr//td[4]//a[2]")
-	WebElement deleteButton;
+	private WebElement deleteButton;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Status Changed Successfully')]")
-	WebElement statusChangedAlert;
+	private WebElement statusChangedAlert;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Updated Successfully ')]")
-	WebElement updateStatusAlert;
+	private WebElement updateStatusAlert;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Created Successfully ')]")
-	WebElement newCategoryAlert;
+	private WebElement newCategoryAlert;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category Deleted Successfully')]")
-	WebElement deleteStatusAlert;
+	private WebElement deleteStatusAlert;
 	@FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Category already exists')]")
-	WebElement duplicateStatusAlert;
+	private WebElement duplicateStatusAlert;
 	@FindBy(xpath = "//input[@id='category']")
-	WebElement categoryInput;
+	private WebElement categoryInput;
 	@FindBy(xpath = "//input[@name='un']")
-	WebElement searchCategoryInput;
+	private WebElement searchCategoryInput;
 	@FindBy(xpath = "//div[@class='ms-selectable']//ul//li")
-	WebElement selectGroupElement;
+	private WebElement selectGroupElement;
 	@FindBy(xpath = "//div[@class='ms-selection']//ul//li")
-	WebElement selectedGroupElement;
+	private WebElement selectedGroupElement;
 	@FindBy(xpath = "//input[@id='main_img']")
-	WebElement imagePathInput;
+	private WebElement imagePathInput;
 	@FindBy(xpath = "//input[@name='top_menu'][1]")
-	WebElement topMenuYesOption;
+	private WebElement topMenuYesOption;
 	@FindBy(xpath = "//input[@name='top_menu'][2]")
-	WebElement topMenuNoOption;
+	private WebElement topMenuNoOption;
 	@FindBy(xpath = "//input[@name='show_home'][1]")
-	WebElement showHomeYesOption;
+	private WebElement showHomeYesOption;
 	@FindBy(xpath = "//input[@name='show_home' and @value='no']")
-	WebElement showHomeNoOption;
+	private WebElement showHomeNoOption;
 	@FindBy(xpath = "//button[@name='create']")
-	WebElement createButton;
+	private WebElement createButton;
 	@FindBy(xpath = "//a[text()='Cancel']")
-	WebElement cancelButton;
+	private WebElement cancelButton;
 	@FindBy(xpath = "//button[@name='update']")
-	WebElement updateButtonElement;
+	private WebElement updateButtonElement;
 	@FindBy(xpath = "//button[@name='Search']")
-	WebElement searchButton;
+	private WebElement searchButton;
 	@FindBy(xpath = "//table/tbody/tr/td")
-	List<WebElement> tableElements;
+	private List<WebElement> tableElements;
 	@FindBy(xpath = "//a//span[@class=\"fas fa-trash-alt\"]")
-	WebElement imageDeleteButton;
+	private WebElement imageDeleteButton;
 	@FindBy(xpath = "//a[text()='Home']")
-	WebElement homebutton;
-	String xpath = "//a//span[@class=\"fas fa-trash-alt\"]";
-	WaitUtility waitUtility;
+	private WebElement homebutton;
 	PageUtility pageUtility;
 	GeneralUtility generalUtility;
 	String alert = "";

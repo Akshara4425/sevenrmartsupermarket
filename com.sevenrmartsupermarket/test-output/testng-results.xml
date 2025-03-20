@@ -1,65 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="9" passed="8" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-19T23:08:32 IST" name="groupexecution" finished-at="2025-03-19T23:09:00 IST" duration-ms="27407">
+  <suite started-at="2025-03-20T14:03:28 IST" name="crossbrowser" finished-at="2025-03-20T14:03:50 IST" duration-ms="22396">
     <groups>
       <group name="regression">
-        <method signature="HomeTest.verifyMoreInfoLink()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" name="verifyMoreInfoLink" class="com.sevenrmartsupermarket.tests.HomeTest"/>
-        <method signature="HomeTest.verifyPageTitle()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" name="verifyPageTitle" class="com.sevenrmartsupermarket.tests.HomeTest"/>
-        <method signature="LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" name="verifyAfterLoginNavigation" class="com.sevenrmartsupermarket.tests.LoginTest"/>
-        <method signature="LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" name="verifyInvalidLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
-        <method signature="LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" name="verifyLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" name="verifyAfterLoginNavigation" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" name="verifyInvalidLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" name="verifyLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" name="verifyAfterLoginNavigation" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" name="verifyInvalidLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" name="verifyLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" name="verifyAfterLoginNavigation" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" name="verifyInvalidLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" name="verifyLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
       </group> <!-- regression -->
-      <group name="smoke">
-        <method signature="HomeTest.verifyMoreInfoLink()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" name="verifyMoreInfoLink" class="com.sevenrmartsupermarket.tests.HomeTest"/>
-      </group> <!-- smoke -->
     </groups>
-    <test started-at="2025-03-19T23:08:32 IST" name="regressionrun" finished-at="2025-03-19T23:09:00 IST" duration-ms="27407">
-      <class name="com.sevenrmartsupermarket.tests.HomeTest">
-        <test-method is-config="true" signature="launchSession()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" started-at="2025-03-19T23:08:47 IST" name="launchSession" finished-at="2025-03-19T23:08:48 IST" duration-ms="1610" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchSession -->
-        <test-method signature="verifyMoreInfoLink()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" started-at="2025-03-19T23:08:48 IST" name="verifyMoreInfoLink" finished-at="2025-03-19T23:08:57 IST" duration-ms="8779" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyMoreInfoLink -->
-        <test-method is-config="true" signature="launchSession()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" started-at="2025-03-19T23:08:57 IST" name="launchSession" finished-at="2025-03-19T23:09:00 IST" duration-ms="2234" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchSession -->
-        <test-method signature="verifyPageTitle()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@2177849e]" started-at="2025-03-19T23:09:00 IST" name="verifyPageTitle" finished-at="2025-03-19T23:09:00 IST" duration-ms="31" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPageTitle -->
-      </class> <!-- com.sevenrmartsupermarket.tests.HomeTest -->
+    <test started-at="2025-03-20T14:03:28 IST" name="chrome" finished-at="2025-03-20T14:03:40 IST" duration-ms="11901">
       <class name="com.sevenrmartsupermarket.tests.LoginTest">
-        <test-method is-config="true" signature="launchSession()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" started-at="2025-03-19T23:08:32 IST" name="launchSession" finished-at="2025-03-19T23:08:40 IST" duration-ms="7818" status="PASS">
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:28 IST" name="launchSession" finished-at="2025-03-20T14:03:32 IST" duration-ms="3971" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchSession -->
-        <test-method signature="verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" started-at="2025-03-19T23:08:40 IST" name="verifyAfterLoginNavigation" description="Verify whether after login page is redirected to Home " finished-at="2025-03-19T23:08:41 IST" duration-ms="1068" status="PASS">
+        <test-method signature="verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:32 IST" name="verifyAfterLoginNavigation" description="Verify whether after login page is redirected to Home " finished-at="2025-03-20T14:03:32 IST" duration-ms="481" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [https://groceryapp.uniqassosiates.com/admin] but found [https://groceryapp.uniqassosiates.com/admin/login]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [https://groceryapp.uniqassosiates.com/admin] but found [https://groceryapp.uniqassosiates.com/admin/login]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at com.sevenrmartsupermarket.tests.LoginTest.verifyAfterLoginNavigation(LoginTest.java:42)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1575)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAfterLoginNavigation -->
-        <test-method is-config="true" signature="launchSession()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" started-at="2025-03-19T23:08:41 IST" name="launchSession" finished-at="2025-03-19T23:08:44 IST" duration-ms="2466" status="PASS">
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:32 IST" name="terminateSession" finished-at="2025-03-20T14:03:33 IST" duration-ms="725" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAfterLoginNavigation status=FAILURE method=LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:33 IST" name="launchSession" finished-at="2025-03-20T14:03:35 IST" duration-ms="1722" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchSession -->
-        <test-method signature="verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" started-at="2025-03-19T23:08:44 IST" name="verifyInvalidLogin" description="Verify login with invalid credentials" finished-at="2025-03-19T23:08:45 IST" duration-ms="1429" status="PASS">
+        <test-method signature="verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:35 IST" name="verifyInvalidLogin" description="Verify login with invalid credentials" finished-at="2025-03-20T14:03:36 IST" duration-ms="1576" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInvalidLogin -->
-        <test-method is-config="true" signature="launchSession()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" started-at="2025-03-19T23:08:45 IST" name="launchSession" finished-at="2025-03-19T23:08:46 IST" duration-ms="1286" status="PASS">
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:36 IST" name="terminateSession" finished-at="2025-03-20T14:03:36 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyInvalidLogin status=SUCCESS method=LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:36 IST" name="launchSession" finished-at="2025-03-20T14:03:39 IST" duration-ms="2496" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchSession -->
-        <test-method signature="verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2118cddf]" started-at="2025-03-19T23:08:46 IST" name="verifyLogin" description="Verify login with valid credentials" finished-at="2025-03-19T23:08:47 IST" duration-ms="629" status="PASS">
+        <test-method signature="verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:39 IST" name="verifyLogin" description="Verify login with valid credentials" finished-at="2025-03-20T14:03:40 IST" duration-ms="868" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58]" started-at="2025-03-20T14:03:40 IST" name="terminateSession" finished-at="2025-03-20T14:03:40 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@548e6d58] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
       </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
-    </test> <!-- regressionrun -->
-  </suite> <!-- groupexecution -->
+    </test> <!-- chrome -->
+    <test started-at="2025-03-20T14:03:28 IST" name="edge" finished-at="2025-03-20T14:03:50 IST" duration-ms="22014">
+      <class name="com.sevenrmartsupermarket.tests.LoginTest">
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:28 IST" name="launchSession" finished-at="2025-03-20T14:03:39 IST" duration-ms="11632" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchSession -->
+        <test-method signature="verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:39 IST" name="verifyAfterLoginNavigation" description="Verify whether after login page is redirected to Home " finished-at="2025-03-20T14:03:40 IST" duration-ms="871" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAfterLoginNavigation -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:40 IST" name="terminateSession" finished-at="2025-03-20T14:03:40 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAfterLoginNavigation status=SUCCESS method=LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:40 IST" name="launchSession" finished-at="2025-03-20T14:03:44 IST" duration-ms="3985" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchSession -->
+        <test-method signature="verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:44 IST" name="verifyInvalidLogin" description="Verify login with invalid credentials" finished-at="2025-03-20T14:03:45 IST" duration-ms="436" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:45 IST" name="terminateSession" finished-at="2025-03-20T14:03:45 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyInvalidLogin status=SUCCESS method=LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:45 IST" name="launchSession" finished-at="2025-03-20T14:03:49 IST" duration-ms="4054" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchSession -->
+        <test-method signature="verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:49 IST" name="verifyLogin" description="Verify login with valid credentials" finished-at="2025-03-20T14:03:50 IST" duration-ms="984" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogin -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848]" started-at="2025-03-20T14:03:50 IST" name="terminateSession" finished-at="2025-03-20T14:03:50 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@74455848] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+      </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
+    </test> <!-- edge -->
+    <test started-at="2025-03-20T14:03:28 IST" name="firefox" finished-at="2025-03-20T14:03:50 IST" duration-ms="22396">
+      <class name="com.sevenrmartsupermarket.tests.LoginTest">
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:28 IST" name="launchSession" finished-at="2025-03-20T14:03:36 IST" duration-ms="7892" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchSession -->
+        <test-method signature="verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:36 IST" name="verifyAfterLoginNavigation" description="Verify whether after login page is redirected to Home " finished-at="2025-03-20T14:03:37 IST" duration-ms="1066" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAfterLoginNavigation -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:37 IST" name="terminateSession" finished-at="2025-03-20T14:03:37 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAfterLoginNavigation status=SUCCESS method=LoginTest.verifyAfterLoginNavigation()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:37 IST" name="launchSession" finished-at="2025-03-20T14:03:43 IST" duration-ms="6511" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchSession -->
+        <test-method signature="verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:43 IST" name="verifyInvalidLogin" description="Verify login with invalid credentials" finished-at="2025-03-20T14:03:44 IST" duration-ms="892" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:44 IST" name="terminateSession" finished-at="2025-03-20T14:03:44 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyInvalidLogin status=SUCCESS method=LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method is-config="true" signature="launchSession(java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:44 IST" name="launchSession" finished-at="2025-03-20T14:03:49 IST" duration-ms="5048" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchSession -->
+        <test-method signature="verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:49 IST" name="verifyLogin" description="Verify login with valid credentials" finished-at="2025-03-20T14:03:50 IST" duration-ms="934" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogin -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f]" started-at="2025-03-20T14:03:50 IST" name="terminateSession" finished-at="2025-03-20T14:03:50 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@2cd2a21f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+      </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
+    </test> <!-- firefox -->
+  </suite> <!-- crossbrowser -->
 </testng-results>

@@ -202,7 +202,9 @@ public String statusChange()
 		pageutility.mouseClick(statusUpdateLink_Element);
 		statusChanged = statusUpdateLink_Element.getText();
 		System.out.println("Status of " + userName + " is :" + statusPresent);
-		System.out.println("Status of " + userName + " is :" + statusChanged);	
+		System.out.println("Status of " + userName + " is :" + statusChanged);
+		searchNameinTable(userName, userType);
+		
 	}
 	public void userNameUpdateButtonClick(String userName, String nameUpdate, String userType) {
 		pageutility = new PageUtility(driver);
@@ -211,6 +213,7 @@ public String statusChange()
 		enterUsername(nameUpdate);
 		selectTypeOfUser(userType);	
 		buttonClick(updateButton_Element);
+		searchNameinTable(nameUpdate, userType);
 	}
 	public String updteAlert()
 	{
@@ -223,7 +226,7 @@ public String statusChange()
 		searchNameinTable(userName, userType);
 		pageutility.switchToAlert(driver, DeleteButton_Element);
 		pageutility.switchToAlert(driver, DeleteButton_Element);
-		
+		searchNameinTable(userName, userType);
 	}
 	public String deleteUserStatus()
 	{

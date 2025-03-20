@@ -49,13 +49,13 @@ public class CategoryTest extends Base{
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
 			
-			categoryPage.insertNewCategory("dell","dell");
+			categoryPage.insertNewCategory("lenavo laptop","lenavo");
 			categoryPage=homePage.selectCategoryPage();
 			boolean actualAlert=categoryPage.alertnewCategory("dell");
 			Assert.assertTrue(actualAlert);
 			
 		}
-		@Test (groups={"regression"})
+		@Test (groups={"regression","regressiontest"})
 		public void validateCategorySearchButtonFunctionality()
 		{
 		loginPage=new LoginPage(driver);
@@ -64,29 +64,29 @@ public class CategoryTest extends Base{
 		boolean actualAlert=categoryPage.searchCategory("laptop");
 		Assert.assertTrue(actualAlert);
 		}
-		@Test (groups={"regression"},retryAnalyzer = RetryAnalyzer.class )
+		@Test (groups={"regressiontest","regression"},retryAnalyzer = RetryAnalyzer.class )
 		public void validateCategoryUpdateButtonFunctionality()
 		{                                                    
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			categoryPage.updateCategory("lenavo laptop","dell laptop","dell");
+			categoryPage.updateCategory("Dell Laptop","New  laptop","dell");
 			
 			String expectedAlert="× Alert! Category Updated Successfully";
 			String actualAlert=categoryPage.updateAlert();
-			categoryPage.performSearch("dell laptop");
+			categoryPage.performSearch("New  laptop");
 			homePage.logOutFunctionality();
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
 			Assert.assertEquals(actualAlert, expectedAlert);
 		}
-		@Test (groups={"regression"})
+		@Test (groups={"regressiontest"})
 		public void validateDeleteCategoryButton()
 		{
 			loginPage=new LoginPage(driver);
 			homePage=loginPage.logIn();
 			categoryPage=homePage.selectCategoryPage();
-			String actualAlert=categoryPage.deleteCategory("flower");
+			String actualAlert=categoryPage.deleteCategory("Beetroot");
 			String expectedAlert="× Alert! Category Deleted Successfully";
 			homePage.logOutFunctionality();
 			homePage=loginPage.logIn();

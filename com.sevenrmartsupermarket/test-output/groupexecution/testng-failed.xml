@@ -11,13 +11,33 @@
       </run>
     </groups>
     <classes>
+      <class name="com.sevenrmartsupermarket.tests.AdminUserTest">
+        <methods>
+          <include name="validateUserDetailUpdateButtonFunctionality"/>
+          <include name="validateNewUserCreation"/>
+          <include name="launchSession"/>
+          <include name="launchSession"/>
+          <include name="validateSearchButtonfunctionality"/>
+          <include name="validateAdminUserDeleteButtonFunctionality"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.AdminUserTest -->
       <class name="com.sevenrmartsupermarket.tests.LoginTest">
         <methods>
           <include name="verifyAfterLoginNavigation"/>
           <include name="launchSession"/>
           <include name="launchSession"/>
+          <include name="verifyLogin"/>
+          <include name="verifyInvalidLogin"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
+      <class name="com.sevenrmartsupermarket.tests.HomeTest">
+        <methods>
+          <include name="verifyPageTitle"/>
+          <include name="verifyMoreInfoLink"/>
+          <include name="launchSession"/>
+          <include name="launchSession"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.HomeTest -->
     </classes>
   </test> <!-- regressionrun(failed) -->
 </suite> <!-- Failed suite [groupexecution] -->

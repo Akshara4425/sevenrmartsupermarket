@@ -7,8 +7,8 @@
         <methods>
           <include name="launchSession"/>
           <include name="launchSession"/>
-          <include name="validateDeleteCategoryButton"/>
           <include name="terminateSession"/>
+          <include name="validateCategoryUpdateButtonFunctionality"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.CategoryTest -->
     </classes>
